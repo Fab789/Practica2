@@ -1,0 +1,52 @@
+﻿@*
+    Widget flotante del tipo de cambio.
+    No recibe modelo: los datos los carga site.js (getExchangeRate / loadExchangeRate)
+    y los cachea en el navegador.
+*@
+
+<aside id="exchange-rate-widget" class="fx-widget is-loading" aria-live="polite" aria-label="Tipo de cambio">
+    <div class="fx-header">
+        <span class="fx-title">
+            <span class="fx-dot"></span>
+            Tipo de cambio
+        </span>
+        <div class="fx-actions">
+            <button type="button" id="fx-refresh" class="fx-btn" title="Actualizar" aria-label="Actualizar tipo de cambio">&#8635;</button>
+            <button type="button" id="fx-toggle" class="fx-btn" title="Minimizar" aria-label="Minimizar o expandir" aria-expanded="true">&ndash;</button>
+        </div>
+    </div>
+
+    <div class="fx-body">
+        <section class="fx-section">
+            <div class="fx-label">
+                <span>D&oacute;lar (USD)</span>
+                <small id="fx-usd-date"></small>
+            </div>
+            <div class="fx-row">
+                <span>Compra</span>
+                <strong id="fx-usd-buy" class="fx-value">&mdash;</strong>
+            </div>
+            <div class="fx-row">
+                <span>Venta</span>
+                <strong id="fx-usd-sell" class="fx-value">&mdash;</strong>
+            </div>
+        </section>
+
+        <section class="fx-section">
+            <div class="fx-label">
+                <span>Euro (EUR)</span>
+                <small id="fx-eur-date"></small>
+            </div>
+            <div class="fx-row">
+                <span>En colones</span>
+                <strong id="fx-eur-crc" class="fx-value">&mdash;</strong>
+            </div>
+            <div class="fx-row">
+                <span>En d&oacute;lares</span>
+                <strong id="fx-eur-usd" class="fx-value">&mdash;</strong>
+            </div>
+        </section>
+
+        <div class="fx-footer" id="fx-status">Cargando...</div>
+    </div>
+</aside>

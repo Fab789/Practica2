@@ -1,0 +1,154 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* ============================================================
+   Widget flotante: tipo de cambio
+   ============================================================ */
+.fx-widget {
+  position: fixed;
+  top: 4.5rem;
+  right: 1rem;
+  z-index: 1040;
+  width: 260px;
+  max-width: calc(100vw - 2rem);
+  color: #e8eefc;
+  background: linear-gradient(145deg, #1e2a4a 0%, #2b3f7a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(20, 30, 70, 0.35);
+  font-size: 0.85rem;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.fx-widget:hover {
+  box-shadow: 0 14px 36px rgba(20, 30, 70, 0.45);
+  transform: translateY(-1px);
+}
+
+.fx-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.8rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.fx-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.fx-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3ddc97;
+  box-shadow: 0 0 0 0 rgba(61, 220, 151, 0.6);
+  animation: fx-pulse 2s infinite;
+}
+
+.fx-widget.is-stale .fx-dot { background: #ffc857; animation: none; }
+.fx-widget.has-error .fx-dot { background: #ff6b6b; animation: none; }
+
+.fx-actions { display: flex; gap: 0.25rem; }
+
+.fx-btn {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  line-height: 1;
+  color: #e8eefc;
+  background: rgba(255, 255, 255, 0.1);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.fx-btn:hover { background: rgba(255, 255, 255, 0.25); }
+.fx-widget.is-loading #fx-refresh { animation: fx-spin 0.9s linear infinite; }
+
+.fx-body { padding: 0.5rem 0.8rem 0.7rem; }
+
+.fx-section + .fx-section {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.18);
+}
+
+.fx-label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.2rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9fb4ff;
+}
+
+.fx-label small { font-size: 0.7rem; font-weight: 400; text-transform: none; letter-spacing: 0; opacity: 0.8; }
+
+.fx-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.15rem 0;
+}
+
+.fx-row span { opacity: 0.8; }
+.fx-value { font-variant-numeric: tabular-nums; font-size: 0.95rem; }
+
+.fx-widget.is-loading .fx-value { opacity: 0.45; }
+
+.fx-footer {
+  margin-top: 0.55rem;
+  font-size: 0.7rem;
+  text-align: right;
+  opacity: 0.65;
+}
+
+.fx-widget.has-error .fx-footer { color: #ffb3b3; opacity: 1; }
+
+/* Minimizado */
+.fx-widget.is-collapsed { width: auto; }
+.fx-widget.is-collapsed .fx-body { display: none; }
+.fx-widget.is-collapsed .fx-header { border-bottom: 0; gap: 0.75rem; }
+
+@keyframes fx-pulse {
+  70%  { box-shadow: 0 0 0 8px rgba(61, 220, 151, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(61, 220, 151, 0); }
+}
+
+@keyframes fx-spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 575.98px) {
+  .fx-widget { top: 4rem; right: 0.5rem; width: 220px; }
+}
